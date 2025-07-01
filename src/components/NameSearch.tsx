@@ -1,16 +1,30 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { AutoCompleteOverlay } from "./AutoCompleteOverlay";
 import { ResultsList } from "./ResultsList";
 import { NameDetail } from "./NameDetail";
 import styles from "../styles/NameSearch.module.css";
+import debounce from "lodash.debounce";
 
 interface NameSearchProps {
   names: string[];
 }
 
 export function NameSearch({ names }: NameSearchProps) {
+  const [input, setInput] = useState("");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<string | null>(null);
+
+  const debouncedSetQuery = useCallback(
+    debounce((value: string) => setQuery(value), 250) as (
+      value: string
+    ) => void,
+    []
+  );
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+    debouncedSetQuery(e.target.value);
+  };
 
   const results = useMemo(
     () =>
@@ -40,8 +54,8 @@ export function NameSearch({ names }: NameSearchProps) {
           className={styles.input}
           placeholder="이름을 입력하세요..."
           autoComplete="off"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          value={input}
+          onChange={handleInputChange}
         />
       </div>
       <div className={styles.resultsContainer}>
