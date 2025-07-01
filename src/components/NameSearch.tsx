@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { AutoCompleteOverlay } from "./AutoCompleteOverlay";
 import { ResultsList } from "./ResultsList";
+import { NameDetail } from "./NameDetail";
 import styles from "../styles/NameSearch.module.css";
 
 interface NameSearchProps {
@@ -51,6 +52,9 @@ export function NameSearch({ names }: NameSearchProps) {
           onClickName={setSelected}
         />
       </div>
+      {selected && (
+        <NameDetail name={selected} onClose={() => setSelected(null)} />
+      )}
     </div>
   );
 }
