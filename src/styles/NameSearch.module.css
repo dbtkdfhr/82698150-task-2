@@ -1,0 +1,32 @@
+.searchContainer {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+.input:focus {
+  border-color: #4caf50;
+}
+
+.resultsContainer {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.resultsTitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
