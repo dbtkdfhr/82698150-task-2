@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NameSearch } from "./components/NameSearch";
 import styles from "./styles/App.module.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <div className={styles.info}>
         💡 이름을 입력하면 자동완성과 관련 결과를 확인할 수 있습니다.
       </div>
+      <NameSearch names={names} />
     </div>
   );
 }
