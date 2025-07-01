@@ -55,7 +55,7 @@
 ```
 프로젝트 루트/
 ├─ public/
-│   └─ names.csv             # 이름 데이터 (CSV, 한 줄 한 명)
+│   └─ names.csv           # 이름 데이터 (CSV, 한 줄 한 명)
 ├─ src/
 │   ├─ components/         # 컴포넌트 폴더 분리
 │   │   ├─ AutocompleteOverlay.tsx
@@ -63,8 +63,8 @@
 │   │   ├─ ResultsList.tsx
 │   │   └─ NameDetail.tsx
 │   ├─ api/
-│   │   └─ personApi.ts      # 더미 상세정보 fetch 함수
-│   ├─ styles/                      # css 스타일 폴더 분리
+│   │   └─ personApi.ts    # 더미 상세정보 fetch 함수
+│   ├─ styles/             # css 스타일 폴더 분리
 │   │   ├─ AutocompleteOverlay.module.css
 │   │   ├─ NameSearch.module.css
 │   │   ├─ ResultsList.module.css
