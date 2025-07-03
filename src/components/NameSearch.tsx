@@ -9,11 +9,13 @@ interface NameSearchProps {
   names: string[];
 }
 
+// 이름 검색창의 컴포넌트
 export function NameSearch({ names }: NameSearchProps) {
   const [input, setInput] = useState("");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<string | null>(null);
 
+  // 이름 검색의 성능을 위한 debouncew 구문 (입력을 멈추고 0.25초 후에 검색)
   const debouncedSetQuery = useCallback(
     debounce((value: string) => setQuery(value), 250) as (
       value: string
@@ -36,6 +38,7 @@ export function NameSearch({ names }: NameSearchProps) {
     [query, names]
   );
 
+  //자동완성을 위해 검색되는 목록 중 첫번째 데이터 찾는 구문
   const autocomplete = useMemo(
     () =>
       query.trim()

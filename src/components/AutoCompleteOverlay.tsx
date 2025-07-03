@@ -5,10 +5,12 @@ interface AutoCompleteOverlayProps {
   match: string;
 }
 
+//자동완성을 위한 컴포넌트
 export function AutoCompleteOverlay({
   input,
   match,
 }: AutoCompleteOverlayProps) {
+  // 인풋이 없거나 검색되는 이름이 없을 경우를 분리하여 렌더링
   if (
     !input ||
     !match ||

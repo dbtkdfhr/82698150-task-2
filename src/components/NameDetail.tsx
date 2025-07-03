@@ -12,10 +12,12 @@ interface RenderDataStateProps {
   info: PersonDetail | null;
 }
 
+//선택한 인원의 자세한 정보를 알려주기 위한 컴포넌트
 export function NameDetail({ name, onClose }: NameDetailProps) {
   const [info, setInfo] = useState<PersonDetail | null>(null);
   const [loading, setLoading] = useState(false);
 
+  //name의 변화에 맞춰 렌더링 해주기 위한 useEffect 구문
   useEffect(() => {
     if (name) {
       setLoading(true);
@@ -26,6 +28,7 @@ export function NameDetail({ name, onClose }: NameDetailProps) {
     }
   }, [name]);
 
+  //이름이 선택되지 않았을 시 null 리턴
   if (!name) return null;
 
   return (
@@ -38,9 +41,12 @@ export function NameDetail({ name, onClose }: NameDetailProps) {
   );
 }
 
+//정보 없음, 로딩 중, 상세 정보를 나누어 렌더링 하기 위한 컴포넌트
 function RenderDataState({ loading, info }: RenderDataStateProps) {
+  //로딩 중 일 대
   if (loading) return <div className={styles.loading}>로딩 중...</div>;
 
+  //정보가 null일 때
   if (!info) return <div>정보 없음</div>;
 
   return (

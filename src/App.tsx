@@ -5,6 +5,8 @@ import styles from "./styles/App.module.css";
 function App() {
   const [names, setNames] = useState<string[]>([]);
 
+  //이름이 들어있는 csv 파일을 파싱하여 names에 저장
+  //첫 렌더링 시에만 가져오기 위한 useEffect 사용
   useEffect(() => {
     fetch("/names.csv")
       .then((res) => res.text())

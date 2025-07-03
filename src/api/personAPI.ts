@@ -14,6 +14,7 @@ const sampleBio = [
   "새로운 것을 배우는 걸 좋아합니다.",
 ];
 
+//인원의 자세한 정보를 보여주기 위한 publicAPI
 export function fetchPersonDetail(name: string): Promise<PersonDetail> {
   return new Promise((resolve) => {
     setTimeout(() => {
