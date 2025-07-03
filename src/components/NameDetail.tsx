@@ -7,7 +7,7 @@ interface NameDetailProps {
   onClose: () => void;
 }
 
-interface SplitDataProps {
+interface RenderDataStateProps {
   loading: boolean;
   info: PersonDetail | null;
 }
@@ -38,7 +38,7 @@ export function NameDetail({ name, onClose }: NameDetailProps) {
   );
 }
 
-function RenderDataState({ loading, info }: SplitDataProps) {
+function RenderDataState({ loading, info }: RenderDataStateProps) {
   if (loading) return <div className={styles.loading}>로딩 중...</div>;
 
   if (!info) return <div>정보 없음</div>;
