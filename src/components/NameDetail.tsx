@@ -33,29 +33,28 @@ export function NameDetail({ name, onClose }: NameDetailProps) {
       <button className={styles.closeBtn} onClick={onClose}>
         닫기
       </button>
-      <SplitData loading={loading} info={info} />
+      <RenderDataState loading={loading} info={info} />
     </div>
   );
 }
 
-function SplitData({ loading, info }: SplitDataProps) {
+function RenderDataState({ loading, info }: SplitDataProps) {
   if (loading) return <div className={styles.loading}>로딩 중...</div>;
 
-  if (info)
-    return (
-      <>
-        <div className={styles.title}>{info.name}님의 상세 정보</div>
-        <div className={styles.row}>
-          <span>성별:</span> {info.gender}
-        </div>
-        <div className={styles.row}>
-          <span>출생연도:</span> {info.birthYear}
-        </div>
-        <div className={styles.row}>
-          <span>소개:</span> {info.bio}
-        </div>
-      </>
-    );
+  if (!info) return <div>정보 없음</div>;
 
-  return <div>정보 없음</div>;
+  return (
+    <>
+      <div className={styles.title}>{info.name}님의 상세 정보</div>
+      <div className={styles.row}>
+        <span>성별:</span> {info.gender}
+      </div>
+      <div className={styles.row}>
+        <span>출생연도:</span> {info.birthYear}
+      </div>
+      <div className={styles.row}>
+        <span>소개:</span> {info.bio}
+      </div>
+    </>
+  );
 }
